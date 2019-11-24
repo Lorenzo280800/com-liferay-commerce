@@ -1,11 +1,11 @@
 <html>
 <head>
-<title>CommerceMinium</title>
+<title>CommerceAccelerators</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">CommerceMinium</td></tr>
+<tr><td rowspan="1" colspan="3">CommerceAccelerators</td></tr>
 </thead>
 <tbody>
 <tr>
@@ -24,28 +24,8 @@
 	<td></td>
 </tr>
 <tr>
-	<td>ACCOUNT_MANAGEMENT_ADD_MODAL_ADDRESS</td>
-	<td>//div/label[contains(.,'Address')]//..//input | //div/label[contains(.,'Street')]//..//input</td>
-	<td></td>
-</tr>
-<tr>
 	<td>ACCOUNT_MANAGEMENT_ADD_ADDRESS_ARROW</td>
 	<td>//div[contains(@class,'__actions')]/button</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ACCOUNT_MANAGEMENT_ADD_MODAL_CITY</td>
-	<td>//div/label[contains(.,'City')]//..//input</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ACCOUNT_MANAGEMENT_ADD_MODAL_COUNTRY</td>
-	<td>//div/label[contains(.,'Country')]//..//select</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ACCOUNT_MANAGEMENT_ADD_MODAL_NAME</td>
-	<td>//div/label[contains(.,'Name')]//..//input</td>
 	<td></td>
 </tr>
 <tr>
@@ -54,25 +34,11 @@
 	<td></td>
 </tr>
 <tr>
-	<td>ACCOUNT_MANAGEMENT_ADD_MODAL_REGION</td>
-	<td>//div/label[contains(.,'Region')]//..//select</td>
-	<td></td>
-</tr>
-<tr>
-	<td>ACCOUNT_MANAGEMENT_ADD_MODAL_TELEPHONE_NUMBER</td>
-	<td>//div/label[contains(.,'Telephone')]//..//input | //div/label[contains(.,'Phone Number')]//..//input</td>
-	<td></td>
-</tr>
-<tr>
 	<td>ACCOUNT_MANAGEMENT_ADD_MODAL_TYPE</td>
 	<td>//div/label[contains(.,'Type')]//..//select</td>
 	<td></td>
 </tr>
-<tr>
-	<td>ACCOUNT_MANAGEMENT_ADD_MODAL_ZIP_CODE</td>
-	<td>//div/label[contains(.,'Zip Code')]//..//input | //div/label[contains(.,'Postal Code')]//..//input</td>
-	<td></td>
-</tr>
+
 <tr>
 	<td>ACCOUNT_MANAGEMENT_EDIT_BUTTON</td>
 	<td>//div[@class='account-management__action']//a[contains(.,'Edit')]</td>
@@ -145,12 +111,12 @@
 </tr>
 <tr>
 	<td>ADD_TO_CART_ARROW_BUTTON</td>
-	<td>//div/p[contains(.,'${key_productSKU}')]/..//div[contains(@class,'add-to-cart-button')]//div[contains(@class,'fwd')]</td>
+	<td>//div/*[contains(.,'${key_productName}')]/..//div[contains(@class,'add-to-cart-button')]//div[contains(@class,'fwd')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>ADD_TO_CART_BUTTON</td>
-	<td>//div/p[contains(.,'${key_productSKU}')]/..//div//span[contains(.,'${key_productPrice}')]/../..//div[contains(@class,'add-to-cart-button')]</td>
+	<td>//div/*[contains(.,'${key_productName}')]/..//div//span[contains(.,'${key_productUnitPrice}')]/../..//div[contains(@class,'add-to-cart-button')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -184,37 +150,47 @@
 	<td></td>
 </tr>
 <tr>
-	<td>REVIEW_ORDER_ENTRY</td>
+	<td>MINIUM_REVIEW_ORDER_ENTRY</td>
 	<td>//td[contains(., '${key_accountName}')]/../td[contains(.,'${key_orderAuthor}')]/../td/p/span</td>
 	<td></td>
 </tr>
 <tr>
-	<td>PENDING_ORDERS_ENTRY_ACCOUNT_NAME</td>
+	<td>PENDING_ORDER_ENTRY_ACCOUNT_NAME</td>
 	<td>//td[contains(., '${key_accountName}')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>PENDING_ORDERS_INACTIVE_PRICE</td>
+	<td>PENDING_ORDER_INACTIVE_PRICE</td>
 	<td>//table/tbody//td[3]//span[contains(@class,'--inactive')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>PENDING_ORDERS_PRICE</td>
-	<td>//table/tbody//td[3]//span[@class='price__value']</td>
+	<td>PENDING_ORDER_PRODUCT_NAME</td>
+	<td>//table/tbody//td[2]//span | //table/tbody//td[contains(@class,'description-column')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>PENDING_ORDERS_PROMO_PRICE</td>
+	<td>PENDING_ORDER_UNIT_PRICE</td>
+	<td>//table/tbody//td[3]//span[@class='price__value'] | //table/tbody//td[contains(@class,'unit-price-column')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PENDING_ORDER_PRICE</td>
+	<td>//table/tbody//td[6]//span | //table/tbody//td[@class=' lfr-price-column']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PENDING_ORDER_PROMO_PRICE</td>
 	<td>//table/tbody//td[3]//span[contains(@class,'promo-price')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>PENDING_ORDERS_QUANTITY</td>
+	<td>PENDING_ORDER_QUANTITY</td>
 	<td>//table/tbody//td[5]//span</td>
 	<td></td>
 </tr>
 <tr>
-	<td>PENDING_ORDERS_SKU</td>
+	<td>PENDING_ORDER_SKU</td>
 	<td>//table/tbody//td[1]//span[contains(@class,'__value')]</td>
 	<td></td>
 </tr>
@@ -224,13 +200,53 @@
 	<td></td>
 </tr>
 <tr>
-	<td>SIDEBAR_MENU_ITEM</td>
+	<td>MINIUM_SIDEBAR_MENU_ITEM</td>
 	<td>//div[@class='minium-sidebar']//..//a[@class='main-link' and contains (.,'${key_menuItem}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>TOPBAR_BACK_ARROW_BUTTON</td>
 	<td>//div[contains(@class,'minium-topbar')]//a[contains(.,'Back')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SPEEDWELL_REVIEW_ORDER_ENTRY</td>
+	<td>//td[contains(., '${key_accountName}')]/../td/p/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SPEEDWELL_TOPBAR</td>
+	<td>//div[contains(@class,'speedwell-main-menu')]/../button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SPEEDWELL_TOPBAR_LINK</td>
+	<td>//div[contains(@class,'speedwell-main-menu__links')]//a/div[contains(.,'${key_menuItem}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SPEEDWELL_TOPBAR_ACCOUNT_BUTTON</td>
+	<td>//div[contains(@class,'speedwell-account')]/button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SPEEDWELL_ACCOUNT_DASHBOARD_ITEM</td>
+	<td>//div[contains(@class,'account-dashboard')]//h3[contains(.,'${key_dashboardItem}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SPEEDWELL_TABLE_HEAD_ITEM</td>
+	<td>//table/thead//th[contains(.,'${key_tableHeadItem}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>COMMERCE_PLACED_ORDERS_COMMERCE_TABLE</td>
+	<td>//div[@id='commercePlacedOrdersCommerceTable']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CATALOG_CARD_SKU</td>
+	<td>//div/p[@class='minium-card__sku']</td>
 	<td></td>
 </tr>
 </tbody>
