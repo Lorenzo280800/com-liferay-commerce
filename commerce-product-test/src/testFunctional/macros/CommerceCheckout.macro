@@ -1,18 +1,20 @@
 definition {
 
-	macro checkout {
+	macro initializersCheckout {
 		ProductMenu.gotoSite(site = "${site}");
-		
-		Navigator.openSpecificURL(url = "http://localhost:8080/group/Minium");
 
-		Click(locator1 = "CommerceMinium#MINI_CART_BUTTON");
+		if ("${site}" == "Minium") {
+			Navigator.openSpecificURL(url = "http://localhost:8080/group/Minium");
+		}
 
-		Click(locator1 = "CommerceMinium#CHECKOUT_BUTTON");
+		Click(locator1 = "CommerceAccelerators#MINI_CART_BUTTON");
+
+		Click(locator1 = "CommerceAccelerators#CHECKOUT_BUTTON");
 
 		Pause(locator1 = "3000");
 
 		Select(
-			locator1 = "CommerceMinium#CHECKOUT_SHIPPING_ADDRESS_SELECT",
+			locator1 = "CommerceAccelerators#CHECKOUT_SHIPPING_ADDRESS_SELECT",
 			value1 = "${addressName}");
 
 		Click(locator1 = "Button#CONTINUE");
@@ -20,7 +22,7 @@ definition {
 		Click(
 			key_fieldName = "ShippingOptionKey",
 			key_radioOption = "${deliveryType}",
-			locator1 = "CommerceMinium#CHECKOUT_DELIVERY_RADIO");
+			locator1 = "CommerceAccelerators#CHECKOUT_DELIVERY_RADIO");
 
 		Click(locator1 = "Button#CONTINUE");
 
