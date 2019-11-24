@@ -34,6 +34,30 @@ definition {
 			value1 = "Add");
 	}
 
+	macro addNewAddressToAccountFromAdmin {
+		Type(
+			locator1 = "TextInput#STREET_1",
+			value1 = "${addressAddress}");
+
+		Type(
+			locator1 = "TextInput#CITY",
+			value1 = "${addressCity}");
+
+		Select(
+			locator1 = "Select#COUNTRY",
+			value1 = "${addressCountry}");
+
+		Type(
+			locator1 = "TextInput#POSTAL_CODE",
+			value1 = "${addressZipCode}");
+
+		Type(
+			locator1 = "TextInput#NAME",
+			value1 = "${addressName}");
+
+		Click(locator1 = "Button#SAVE");
+	}
+
 	macro addNewAvailabilityEstimatesEntry {
 		Type(
 			locator1 = "CommerceEntry#TITLE_FIELD",
@@ -282,30 +306,6 @@ definition {
 			value1 = "${productSKU}");
 
 		CommerceEntry.selectAssociatedOptionsValue(optionValue = "${optionValue}");
-	}
-
-	macro createAccountAddressFromAdmin {
-		Type(
-			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_ADDRESS",
-			value1 = "${addressAddress}");
-
-		Type(
-			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_CITY",
-			value1 = "${addressCity}");
-
-		Select(
-			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_COUNTRY",
-			value1 = "${addressCountry}");
-
-		Type(
-			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_ZIP_CODE",
-			value1 = "${addressZipCode}");
-
-		Type(
-			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_NAME",
-			value1 = "${addressName}");
-
-		Click(locator1 = "Button#SAVE");
 	}
 
 	macro createNewAccountGroup {
