@@ -10,6 +10,31 @@ definition {
 		TestCase.setUpPortalInstance();
 
 		User.firstLoginPG();
+	}
+
+	tearDown {
+		var testPortalInstance = PropsUtil.get("test.portal.instance");
+
+		if ("${testPortalInstance}" == "true") {
+			PortalInstances.tearDownCP();
+		}
+		else {
+			User.logoutAndLoginPG(
+				password = "test",
+				userLoginEmailAddress = "test@liferay.com");
+
+			CommerceConfiguration.commerceFrontStoreTearDown();
+
+			CommerceConfiguration.commerceAdminTearDown(accountName = "Commerce Account");
+
+			CommerceConfiguration.commerceInitializersTearDown();
+
+			User.logoutPG();
+
+		}
+	}
+
+	test MiniumSiteFullFlow {
 
 		ProductMenu.gotoPortlet(
 			category = "Users",
