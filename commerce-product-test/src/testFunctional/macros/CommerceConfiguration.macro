@@ -38,18 +38,7 @@ definition {
 
 		CommerceConfiguration.commerceOrdersTearDown();
 
-		ProductMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
-
-		LexiconEntry.gotoEntryMenuItemNoError(
-			menuItem = "Deactivate",
-			rowEntry = "${userFirstName}");
-
-		AssertConfirm.waitForConfirmation(value1 = "Are you sure you want to deactivate this?");
-
-		User.deleteCP(userFirstName = "${userFirstName}");
+		User.tearDownCP();
 
 		ProductMenu.gotoPortlet(
 			category = "Users",
