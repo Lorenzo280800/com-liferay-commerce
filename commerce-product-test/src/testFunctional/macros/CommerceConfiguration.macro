@@ -255,7 +255,11 @@ definition {
 			panel = "Control Panel",
 			portlet = "Sites");
 
-		Site.deleteAllCP();
+		while (IsElementPresent(locator1 = "ContentRow#ENTRY_CONTENT_ROW_NUMBER", key_rowNumber = "3")) {
+
+			Site.deleteAllCP();
+
+		}
 	}
 
 	macro commerceOrdersTearDown {
