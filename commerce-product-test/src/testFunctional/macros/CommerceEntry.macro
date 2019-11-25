@@ -308,6 +308,82 @@ definition {
 		CommerceEntry.selectAssociatedOptionsValue(optionValue = "${optionValue}");
 	}
 
+	macro addWarehouses {
+
+		Click(locator1 = "CommerceEntry#WAREHOUSES");
+		Click(locator1 = "CommerceEntry#WAREHOUSES_ADD_BUTTON");
+
+		Type(
+			locator1 = "CommerceEntry#WAREHOUSES_NAME_FIELD",
+			value1 = "${entryName}");
+		Type(
+			locator1 = "CommerceEntry#WAREHOUSES_DESCRIPTION_FIELD",
+			value1 = "${entryName}");
+
+		Check.checkToggleSwitch(locator1 = "CommerceEntry#ACTIVE_CHECKBOX");
+
+		if (IsElementNotPresent(locator1 = "CommerceEntry#ACCORDION")) {
+			Click(
+				key_accordionTitle = "Channels",
+				locator1 = "CommerceEntry#ACCORDION_TITLE");
+		}
+
+		Click(
+			key_channel = "Liferay",
+			locator1 = "CommerceEntry#WAREHOUSES_SELECT_CHANNEL");
+
+		Click(
+			key_accordionTitle = "Channels",
+			locator1 = "CommerceEntry#ACCORDION_TITLE");
+
+		if (IsElementNotPresent(locator1 = "CommerceEntry#ACCORDION")) {
+			Click(
+				key_accordionTitle = "Geolocation",
+				locator1 = "CommerceEntry#ACCORDION_TITLE");
+		}
+
+		Type(
+			key_coordinate = "Longitude",
+			locator1 = "CommerceEntry#WAREHOUSES_LATITUDE_LONGITUDE",
+			value1 = "1");
+
+		Type(
+			key_coordinate = "Latitude",
+			locator1 = "CommerceEntry#WAREHOUSES_LATITUDE_LONGITUDE",
+			value1 = "1");
+
+		Click(
+			key_accordionTitle = "Geolocation",
+			locator1 = "CommerceEntry#ACCORDION_TITLE");
+
+		//Click(locator1 = "CommerceEntry#SAVE_BUTTON");
+
+	}
+
+	macro createAccountAddressFromAdmin {
+		Type(
+			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_ADDRESS",
+			value1 = "${addressAddress}");
+
+		Type(
+			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_CITY",
+			value1 = "${addressCity}");
+
+		Select(
+			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_COUNTRY",
+			value1 = "${addressCountry}");
+
+		Type(
+			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_ZIP_CODE",
+			value1 = "${addressZipCode}");
+
+		Type(
+			locator1 = "CommerceMinium#ACCOUNT_MANAGEMENT_ADD_MODAL_NAME",
+			value1 = "${addressName}");
+
+		Click(locator1 = "Button#SAVE");
+	}
+
 	macro createNewAccountGroup {
 		ProductMenu.gotoPortlet(
 			category = "Users",
